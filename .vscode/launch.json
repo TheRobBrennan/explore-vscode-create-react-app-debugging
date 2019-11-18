@@ -1,0 +1,26 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Docker container: Launch Chrome",
+      "url": "http://localhost:3000",
+      "sourceMaps": true,
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        // "webpack:///./*": "${webRoot}/*",
+        // "webpack:///./src/*": "${webRoot}/src/*",
+
+        // This path will work if you are running and debugging the Create React App within the defined .devcontainer/devcontainer.json Docker container
+        "/workspaces/explore-vscode-create-react-app-debugging/*": "${webRoot}/*",
+
+        // This path will work if you are running and debugging the Create React App locally
+        "./workspaces/explore-vscode-create-react-app-debugging/*": "${webRoot}/*"
+      }
+    }
+  ]
+}
