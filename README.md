@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome
 
-## Available Scripts
+This project was created to explore debugging a standard [create-react-app](https://create-react-app.dev) app with [VS Code](https://code.visualstudio.com) for the following situations:
 
-In the project directory, you can run:
++ A locally running React application
++ Using [VS Code](https://code.visualstudio.com) to [develop and debug inside a Docker container](https://code.visualstudio.com/docs/remote/containers)
 
-### `yarn start`
+If you have no idea what [developing and debugging inside a Docker container](https://code.visualstudio.com/docs/remote/containers) is, don't worry. I just learned about it today 🤓
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+For the purposes of this README, you can either follow along with the example repo or you can create your own app on your development machine.
 
-### `yarn test`
+If you are going to create your own app, feel free to follow the optional step below. Otherwise, please skip down to `Level 0 - Debug a locally running React application`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [OPTIONAL] Create a new app
 
-### `yarn build`
+To create a new React app, please start from an empty directory and run `npx create-react-app <your-app-name>` - which will create the standard [create-react-app](https://create-react-app.dev) we've all come to know and love:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+# Let's start off in your home directory
+$ cd ~
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Use Facebook's create-react-app
+$ npx create-react-app my-example-app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Navigate to the newly created directort
+$ cd my-example-app
 
-### `yarn eject`
+# Create a .devcontainer directory
+#   -> Be sure to copy `devcontainer.json` and `Dockerfile` to this folder
+$ mkdir .devcontainer
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Create a .vscode directory
+$ mkdir .vscode
+#   -> Be sure to copy `launch.json` to this folder
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Level 0 - Debug a locally running React application
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project contains two folders you may already be familiar with - `public` and `src`. These folders are automatically generated with the [create-react-app](https://create-react-app.dev) tool.
 
-## Learn More
+To debug our locally running React application, simply start the application by running:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+$ npm run start
+Compiled successfully!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can now view explore-vscode-create-react-app-debugging in the browser.
 
-### Code Splitting
+  Local:            http://localhost:3000/
+  On Your Network:  http://10.105.156.212:3000/
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+```
 
-### Analyzing the Bundle Size
+Now that our application is running, let's add a breakpoint to `src/index.js` by clicking to the left of a statement:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![screenshots/00-SetABreakpointLocallyAndRunAppLocally.png](screenshots/00-SetABreakpointLocallyAndRunAppLocally.png)
 
-### Making a Progressive Web App
+Launch the VS Code debugger by clicking on the debug icon or navigating to View > Debug in the toolbar.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Make sure `Debug using Google Chrome` is selected and press the green play button:
 
-### Advanced Configuration
+![screenshots/01-ExampleOfLocalBreakpointWorking.png](screenshots/01-ExampleOfLocalBreakpointWorking.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Congratulations! You can now explore your application using the VS Code debugger instead of pesky `console.log` statements.
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Please see the [VS Code Debugging guide](https://code.visualstudio.com/docs/editor/debugging) for more information.
