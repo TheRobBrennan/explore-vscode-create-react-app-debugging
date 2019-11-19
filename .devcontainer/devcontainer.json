@@ -3,11 +3,11 @@
   "dockerFile": "Dockerfile",
   "appPort": 3000,
   "extensions": [
-  "CoenraadS.bracket-pair-colorizer",
-  "hazer.ReactCodeSnippets",
-  "Tyriar.sort-lines"
+    "CoenraadS.bracket-pair-colorizer",
+    "hazer.ReactCodeSnippets",
+    "Tyriar.sort-lines"
   ],
   "settings": {
-      "terminal.integrated.shell.linux": "/bin/zsh"
+    "terminal.integrated.shell.linux": "/bin/zsh"
   }
 }
